@@ -1,0 +1,60 @@
+{
+  "tests": [
+    {
+      "name": "C1. Proyecto compila",
+      "setup": "",
+      "run": "make clean && make",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "C2. multiplicar implementada",
+      "setup": "",
+      "run": "! grep -q 'TODO' operaciones.c",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 5, "points": 10
+    },
+    {
+      "name": "C3. multiplicar produce resultado correcto",
+      "setup": "make clean && make",
+      "run": "./calculadora | grep '3 \\* 5    = 15'",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 5, "points": 10
+    },
+    {
+      "name": "C4. Commit wip experimento roto existe",
+      "setup": "",
+      "run": "git log --all --oneline | grep -q 'wip: experimento roto'",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 5, "points": 10
+    },
+    {
+      "name": "C5. Revert del commit roto existe",
+      "setup": "",
+      "run": "git log --all --oneline | grep -q 'Revert'",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 5, "points": 10
+    },
+    {
+      "name": "C6. Sin conflict markers en operaciones.c",
+      "setup": "",
+      "run": "! grep -qE '^(<<<<<<<|=======|>>>>>>>)' operaciones.c",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 5, "points": 10
+    },
+    {
+      "name": "C7. esPar funciona correctamente",
+      "setup": "make clean && make",
+      "run": "./calculadora | grep '4 es par = 1' && ./calculadora | grep '7 es par = 0'",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 5, "points": 10
+    },
+    {
+      "name": "C8. Ningun mensaje de commit es vacio o demasiado corto",
+      "setup": "",
+      "run": "! git log --format='%s' | grep -qE '^.{0,4}$'",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 5, "points": 5
+    }
+  ]
+}
