@@ -25,5 +25,5 @@ int esPar(int n) {
 }
 
 int sumarMas2(int a) {
-    return a + 2;
+    return a + 4;
 }
